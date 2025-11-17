@@ -1,6 +1,8 @@
 package com.swiftbus.swiftbus_service.service.impl;
 
 import com.swiftbus.swiftbus_service.entity.Client;
+import com.swiftbus.swiftbus_service.exceptions.InvalidPasswordException;
+import com.swiftbus.swiftbus_service.exceptions.UserNotFoundException;
 import com.swiftbus.swiftbus_service.repository.ClientRepository;
 import com.swiftbus.swiftbus_service.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,20 @@ public class ClientServiceImpl implements ClientService {
         existing.setEmail(updated.getEmail());
         existing.setPhone(updated.getPhone());
         return repo.save(existing);
+    }
+    @Override
+    public Long login(String email, String password) {
+        Client client = repo.findByEmail(email);
+
+        if (client == null) {
+            throw new UserNotFoundException("User not found");
+        }
+
+        if (!client.getPassword().equals(password)) {
+            throw new InvalidPasswordException("Invalid password");
+        }
+
+        return client.getId(); // Login successful
     }
 
     @Override

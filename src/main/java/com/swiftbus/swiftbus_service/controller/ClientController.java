@@ -1,5 +1,6 @@
 package com.swiftbus.swiftbus_service.controller;
 
+import com.swiftbus.swiftbus_service.dto.LoginRequest;
 import com.swiftbus.swiftbus_service.entity.Client;
 import com.swiftbus.swiftbus_service.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,11 @@ public class ClientController {
     public void delete(@PathVariable Long id) {
         service.deleteClient(id);
     }
+
+    @PostMapping("/login")
+    public Long login(@RequestBody LoginRequest request) {
+        return service.login(request.getEmail(), request.getPassword());
+    }
+
+
 }
