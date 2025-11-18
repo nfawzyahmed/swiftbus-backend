@@ -46,7 +46,9 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public RentalDTO createRental(Rental rental) {
+        System.out.println("rental"+rental);
         Rental saved = rentalRepository.save(rental);
+        System.out.println("saved"+saved);
         return rentalMapper.rentalToDTO(saved);
     }
 

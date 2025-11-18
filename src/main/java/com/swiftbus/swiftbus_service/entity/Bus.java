@@ -3,13 +3,11 @@ package com.swiftbus.swiftbus_service.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
 @Data
 @Getter
-@Setter
 public class Bus {
 
     @Id

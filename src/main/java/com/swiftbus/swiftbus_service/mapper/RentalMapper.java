@@ -14,11 +14,11 @@ public interface RentalMapper {
 
     // ---------- RENTAL → RENTALDTO ----------
     @Mapping(target = "busId", source = "bus.id")
-    @Mapping(target = "bus", source = "bus")  // full nested bus mapping
+    @Mapping(target = "bus", source = "bus")
     RentalDTO rentalToDTO(Rental rental);
 
     // ---------- RENTALDTO → RENTAL ----------
-    @Mapping(target = "bus", ignore = true)    // we load bus in service, not mapper
+    @Mapping(target = "bus", ignore = true)
     @Mapping(target = "client", ignore = true) // same for client
     Rental rentalToEntity(RentalDTO dto);
 

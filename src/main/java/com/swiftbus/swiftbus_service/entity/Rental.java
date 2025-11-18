@@ -2,13 +2,11 @@ package com.swiftbus.swiftbus_service.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
-@Setter
 public class Rental {
 
     @Id

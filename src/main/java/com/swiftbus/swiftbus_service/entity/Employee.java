@@ -7,11 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.InheritanceType;
 import lombok.Data;
-import lombok.Setter;
 
 @Entity
 @Data
-@Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Employee {
 
