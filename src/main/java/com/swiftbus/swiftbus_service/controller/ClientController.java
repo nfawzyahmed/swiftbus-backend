@@ -41,8 +41,8 @@ public class ClientController {
     }
 
     @PostMapping("/login")
-    public Long login(@RequestBody LoginRequest request) {
-        return service.login(request.getEmail(), request.getPassword());
+    public String login(@RequestBody LoginRequest request) {
+        return service.login(request.getUsername(), request.getPassword());
     }
 
 

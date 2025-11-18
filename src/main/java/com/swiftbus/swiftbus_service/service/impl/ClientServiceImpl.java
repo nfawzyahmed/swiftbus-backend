@@ -40,8 +40,8 @@ public class ClientServiceImpl implements ClientService {
         return repo.save(existing);
     }
     @Override
-    public Long login(String email, String password) {
-        Client client = repo.findByEmail(email);
+    public String login(String username, String password) {
+        Client client = repo.findByUsername(username);
 
         if (client == null) {
             throw new UserNotFoundException("User not found");
@@ -51,7 +51,7 @@ public class ClientServiceImpl implements ClientService {
             throw new InvalidPasswordException("Invalid password");
         }
 
-        return client.getId(); // Login successful
+        return client.getUsername(); // Login successful
     }
 
     @Override
